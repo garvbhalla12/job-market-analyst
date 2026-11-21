@@ -29,3 +29,8 @@ class UserLogin(BaseModel):
     email: EmailStr
 
     password: str
+
+
+
+class RefreshTokenRequest(BaseModel):
+    refresh_token: str = Field(min_length=20)
