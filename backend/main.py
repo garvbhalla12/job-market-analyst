@@ -6,6 +6,8 @@ import models
 
 from routes.auth import router as auth_router
 
+from routes.analytics_routes import router as analytics_router
+
 
 app = FastAPI(
     title="Job Market Analyst API",
@@ -18,6 +20,9 @@ Base.metadata.create_all(bind=engine)
 
 # Register authentication routes
 app.include_router(auth_router)
+
+# Register analytics routes
+app.include_router(analytics_router)
 
 
 @app.get("/")
