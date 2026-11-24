@@ -16,13 +16,16 @@ export default function AppLayout() {
   return (
     <div className="min-h-screen">
       <Sidebar open={open} onClose={() => setOpen(false)} />
-      <div className="lg:pl-64">
+      <div className="lg:pl-60">
         <Topbar onMenu={() => setOpen(true)} />
         <main className="mx-auto w-full max-w-7xl px-4 py-6 sm:px-6">
           <Outlet />
-          <p className="mt-10 text-center text-xs text-slate-500">
-            Insights are based on a collected sample of job postings, not the entire job market.
-          </p>
+          {/* The AI Assistant page fills the screen and shows its own disclaimer */}
+          {!pathname.startsWith('/assistant') && (
+            <p className="mt-12 border-t border-white/[0.06] pt-5 text-center text-[11px] text-slate-500">
+              Insights are based on a collected sample of job postings, not the entire job market.
+            </p>
+          )}
         </main>
       </div>
     </div>

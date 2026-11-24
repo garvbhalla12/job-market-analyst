@@ -8,6 +8,8 @@ from routes.auth import router as auth_router
 
 from routes.analytics_routes import router as analytics_router
 
+from routes.chat_routes import router as chat_router
+
 
 app = FastAPI(
     title="Job Market Analyst API",
@@ -32,6 +34,9 @@ app.include_router(auth_router)
 
 # Register analytics routes
 app.include_router(analytics_router)
+
+# Register AI assistant (chat + resume analyzer) routes
+app.include_router(chat_router)
 
 
 @app.get("/")

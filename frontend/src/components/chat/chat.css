@@ -1,0 +1,63 @@
+/* Animations used only by the AI Assistant page. */
+
+/* 1. Typing dots */
+.chat-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: #c4b5fd;
+  animation: chat-dot-bounce 1.2s infinite ease-in-out;
+}
+.chat-dot:nth-child(2) { animation-delay: 0.15s; }
+.chat-dot:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes chat-dot-bounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  30% { transform: translateY(-5px); opacity: 1; }
+}
+
+/* 2. New messages fade + slide in */
+.chat-fade-in {
+  animation: chat-fade-in 0.35s ease-out both;
+}
+
+@keyframes chat-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 3. Animated gradient on the AI icon */
+.chat-gradient-icon {
+  background: linear-gradient(135deg, #8b5cf6, #3b82f6, #22d3ee, #8b5cf6);
+  background-size: 300% 300%;
+  animation: chat-gradient-shift 6s ease infinite;
+}
+
+@keyframes chat-gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 7. Resume score ring fills up */
+.chat-score-ring {
+  transition: stroke-dashoffset 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* 4. Drag & drop overlay border */
+.chat-drop-zone {
+  animation: chat-fade-in 0.15s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chat-dot,
+  .chat-fade-in,
+  .chat-gradient-icon,
+  .chat-drop-zone {
+    animation: none;
+  }
+  .chat-score-ring {
+    transition: none;
+  }
+}

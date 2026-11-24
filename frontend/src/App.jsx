@@ -11,6 +11,7 @@ import CompanyAnalytics from './pages/CompanyAnalytics';
 import FresherJobs from './pages/FresherJobs';
 import JobExplorer from './pages/JobExplorer';
 import Profile from './pages/Profile';
+import AIAssistant from './pages/AIAssistant';
 import NotFound from './pages/NotFound';
 
 export default function App() {
@@ -30,6 +31,8 @@ export default function App() {
           <Route path="/companies" element={<CompanyAnalytics />} />
           <Route path="/fresher" element={<FresherJobs />} />
           <Route path="/jobs" element={<JobExplorer />} />
+          <Route path="/assistant" element={<AIAssistant />} />
+          <Route path="/assistant/:conversationId" element={<AIAssistant />} />
           <Route path="/profile" element={<Profile />} />
         </Route>
       </Route>
